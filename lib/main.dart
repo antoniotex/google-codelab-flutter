@@ -8,7 +8,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Welcome to Flutter',
-      home: new RandomWords()
+        theme: new ThemeData(          // Add the 3 lines from here...
+          primaryColor: Colors.white,
+        ),
+        home: new RandomWords()
     );
   }
 }
@@ -99,11 +102,11 @@ class RandomWordsState extends State<RandomWords> {
         pair.asPascalCase,
         style: _biggerFont,
       ),
-      trailing: new Icon(   // Add the lines from here...
+      trailing: new Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
       ),
-      onTap: () {      // Add 9 lines from here...
+      onTap: () {
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
